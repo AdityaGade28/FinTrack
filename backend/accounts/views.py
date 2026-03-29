@@ -223,7 +223,7 @@ class InitializeEnterpriseDataView(APIView):
                         
                         expense = Expense.objects.create(
                             user=user,
-                            merchant=vendor,
+                            vendor_name=vendor,
                             category=category,
                             amount=amount,
                             currency='INR',

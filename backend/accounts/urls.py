@@ -4,7 +4,7 @@ from .views import (
     RegisterView, CustomTokenObtainPairView, CurrentUserView,
     UserListView, UserDetailView,
     ForgotPasswordView, ResetPasswordView, VerifyEmailView, ResendVerificationView,
-    NotificationListView, NotificationBulkReadView, CompanyDirectoryView, SeedIndianDataView
+    NotificationListView, NotificationBulkReadView, CompanyDirectoryView, InitializeEnterpriseDataView
 )
 
 urlpatterns = [

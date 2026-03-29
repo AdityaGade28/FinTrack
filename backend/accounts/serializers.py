@@ -75,6 +75,15 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
+        # Frontend sends email as 'username'. Look up actual username if it's an email.
+        username_or_email = attrs.get('username')
+        if username_or_email and '@' in username_or_email:
+            try:
+                user = User.objects.get(email=username_or_email)
+                attrs['username'] = user.username
+            except User.DoesNotExist:
+                pass
+                
         data = super().validate(attrs)
         data['user'] = UserSerializer(self.user).data
         return data
