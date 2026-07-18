@@ -191,17 +191,43 @@ FinTrack
 
 # 📸 Screenshots
 
-| Dashboard | Transactions |
-|------------|--------------|
-| *(Add Image)* | *(Add Image)* |
+<div align="center">
 
-| Budget Planner | Analytics |
-|----------------|-----------|
-| *(Add Image)* | *(Add Image)* |
+## 🏠 Dashboard
 
-| AI Insights | Profile |
-|--------------|---------|
-| *(Add Image)* | *(Add Image)* |
+<img src="screenshots/dashboard.png" alt="Dashboard" width="900"/>
+
+</div>
+
+---
+
+<div align="center">
+
+## 🔐 Login Page
+
+<img src="screenshots/Login.png" alt="Login Page" width="900"/>
+
+</div>
+
+---
+
+<div align="center">
+
+## ✨ Features Overview
+
+<img src="screenshots/Feature.png" alt="Features Overview" width="900"/>
+
+</div>
+
+---
+
+<div align="center">
+
+## 👤 User Profile
+
+<img src="screenshots/Profile.png" alt="User Profile" width="900"/>
+
+</div>
 
 ---
 
@@ -297,17 +323,7 @@ Financial Insights
 
 ---
 
-# 👨‍💻 Contributors
 
-### Project Lead
-
-**Aditya Gade**
-
-### Team Members
-
-- Add Team Member
-- Add Team Member
-- Add Team Member
 
 ---
 
