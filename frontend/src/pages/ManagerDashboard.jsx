@@ -1,3 +1,9 @@
+import React, { useState, useEffect } from 'react';
+import { Card, Row, Col, Table, Spinner, Button } from 'react-bootstrap';
+import { CheckSquare, Clock, Users, CheckCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import api from '../api/axios';
 import { Pie } from 'react-chartjs-2';
 import { 
     Chart as ChartJS, 

@@ -21,7 +21,7 @@ class ExpenseListCreateView(generics.ListCreateAPIView):
         return Expense.objects.filter(user=user)
 
     def perform_create(self, serializer):
-        expense = serializer.save(user=self.request.user)
+        expense = serializer.save(user=self.request.user, status='Pending')
         # Currency conversion logic would go here
         expense.base_amount = expense.amount # mock for now
         
@@ -73,35 +73,32 @@ class ExpenseListCreateView(generics.ListCreateAPIView):
                 return
                 
         # Default Fallback (Critical Connection Logic)
-        approver = None
-        
         if user.reporting_manager:
             approver = user.reporting_manager
         elif user.role != 'Admin':
             # E.g. Manager without reporting manager goes to Admin
             from accounts.models import User
             company_admin = User.objects.filter(company=company, role='Admin').first()
-            approver = company_admin
-            
-        if approver:
-            from accounts.models import Notification
-            ApprovalFlow.objects.create(
-                expense=expense,
-                approver=approver,
-                status='Pending',
-                step_order=1,
-                is_required=True
-            )
-            Notification.objects.create(
-                user=approver,
-                title="New Approval Request",
-                message=f"{user.first_name} has submitted a new expense for {expense.amount} {expense.currency}.",
-                type='APPROVAL'
-            )
-            expense.status = 'Pending'
+            approver = company_admin or user
         else:
-            # Admin's own expense or solitary user
-            expense.status = 'Approved'
+            # Admin who has no manager will self-approve
+            approver = user
+            
+        from accounts.models import Notification
+        ApprovalFlow.objects.create(
+            expense=expense,
+            approver=approver,
+            status='Pending',
+            step_order=1,
+            is_required=True
+        )
+        Notification.objects.create(
+            user=approver,
+            title="New Approval Request",
+            message=f"{user.first_name} has submitted a new expense for {expense.amount} {expense.currency}.",
+            type='APPROVAL'
+        )
+        expense.status = 'Pending'
             
         expense.save()
 

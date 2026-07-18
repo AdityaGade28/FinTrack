@@ -19,7 +19,7 @@ class Expense(models.Model):
     notes = models.TextField(null=True, blank=True)
     date = models.DateField()
     receipt = models.ImageField(upload_to='receipts/', null=True, blank=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Draft')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='Pending')
     
     vendor_name = models.CharField(max_length=100, null=True, blank=True) # From OCR
     
