@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # FinTrack — Smart Expense & Reimbursement Management System
 
 FinTrack is a premium enterprise-grade expense management and reimbursement system. It enables employees to scan receipts using OCR, submit expenses, track reimbursement cycles, and allows managers and administrators to configure custom multi-stage approval workflows, view team analytics, and manage users.
