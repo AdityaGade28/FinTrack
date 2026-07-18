@@ -1,158 +1,339 @@
 
-# FinTrack — Smart Expense & Reimbursement Management System
+<div align="center">
 
-FinTrack is a premium enterprise-grade expense management and reimbursement system. It enables employees to scan receipts using OCR, submit expenses, track reimbursement cycles, and allows managers and administrators to configure custom multi-stage approval workflows, view team analytics, and manage users.
+# 💰 FinTrack
 
----
+### AI-Powered Personal Finance Management Platform
 
-## 🚀 Key Features
+Track • Budget • Save • Grow 🚀
 
-* **AI-Powered OCR Receipt Scanner**: Extract vendor name, transaction date, and total amount from uploaded receipts (JPEG, PNG, BMP, or PDF) using Tesseract OCR and OpenCV.
-* **Flexible Approval Workflow Engine**: 
-  * Support for sequential or parallel approval paths.
-  * Role-based routing (Employee ➔ Direct Manager ➔ Admin).
-  * Custom approval thresholds (e.g., minimum 60% approval rate, mandatory CFO sign-off overrides).
-* **Role-Based Access Control (RBAC)**: Secure access tailored to **Employees**, **Managers**, and **Admins**.
-* **Real-time Scoped Analytics**: Interactive dashboards with category breakdowns, monthly trends, and department aggregates.
-* **Robust Authentication**: Dual-identifier login (Email or Username) backed by secure JWT token lifecycles.
-* **Audit Trail & Logging**: Complete transparency with automated logging of all actions, rejections, and comments.
+<img src="https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python"/>
+<img src="https://img.shields.io/badge/Django-5.x-darkgreen?style=for-the-badge&logo=django"/>
+<img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react"/>
+<img src="https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql"/>
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
+<img src="https://img.shields.io/github/stars/AdityaGade28/FinTrack?style=for-the-badge"/>
+<img src="https://img.shields.io/github/forks/AdityaGade28/FinTrack?style=for-the-badge"/>
 
 ---
 
-## 🛠️ Technology Stack
+### 💡 Smart Finance. Better Decisions.
 
-| Layer | Technologies | Description |
-|---|---|---|
-| **Frontend** | React 19, Vite, Bootstrap 5, Chart.js, Axios | Fast, modern single-page application with responsive CSS dashboard layouts |
-| **Backend** | Django 6.0, Django REST Framework | Clean, MVC-patterned REST API backend |
-| **Database** | MySQL | Robust relational database |
-| **Auth** | SimpleJWT | Token-based security and authorization |
-| **OCR/Image** | Tesseract OCR, OpenCV, PyMuPDF, Pillow | Multi-format OCR receipt scanner pipeline |
+</div>
 
 ---
 
-## 📂 Project Structure
+# 📖 About
 
-```text
-FinTrack/
-├── backend/            # Django REST API Backend
-│   ├── accounts/       # User profiles, companies, reporting hierarchy
-│   ├── analytics/      # Financial aggregation endpoints
-│   ├── approvals/      # Workflow rules and sequence engines
-│   ├── backend/        # Global Django settings and URLs
-│   ├── expenses/       # Expense submission, storage, and OCR scanning
-│   ├── manage.py
-│   └── requirements.txt
-├── frontend/           # React + Vite Single Page Application
-│   ├── src/
-│   │   ├── api/        # Axios client instance
-│   │   ├── components/ # Reusable UI components (Navbar, Sidebar, etc.)
-│   │   ├── pages/      # Dashboards, login/register, expense forms
-│   │   ├── App.jsx     # Route configurations
-│   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
-├── README.md           # Project Documentation
-└── .gitignore          # Repository git ignore rules
+**FinTrack** is an AI-powered Personal Finance Management Platform that helps users efficiently manage their finances through intelligent expense tracking, budget planning, savings management, and real-time financial analytics.
+
+The platform combines modern web technologies with AI-powered insights to simplify financial planning, encourage better spending habits, and provide users with a comprehensive view of their financial health through interactive dashboards and reports.
+
+---
+
+# ✨ Key Features
+
+### 👤 Authentication
+
+- Secure Login & Registration
+- JWT Authentication
+- Password Reset
+- User Profile
+
+### 💰 Finance Management
+
+- Add Income
+- Add Expenses
+- Multiple Categories
+- Budget Planning
+- Savings Goals
+- Transaction History
+
+### 📊 Dashboard
+
+- Real-Time Analytics
+- Monthly Reports
+- Spending Trends
+- Income vs Expense Graph
+- Pie Charts
+- Line Charts
+- Financial Summary Cards
+
+### 🤖 AI Features
+
+- Smart Expense Categorization
+- Spending Pattern Analysis
+- Budget Recommendations
+- Expense Prediction
+- Personalized Financial Insights
+
+### 🔔 Smart Features
+
+- Budget Limit Alerts
+- Bill Payment Reminders
+- Monthly Financial Reports
+- Goal Tracking
+- Email Notifications
+
+### 📱 User Experience
+
+- Responsive Design
+- Dark Mode
+- Mobile Friendly
+- Fast Performance
+- Beautiful UI
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+- Tailwind CSS
+- Axios
+- Chart.js
+
+---
+
+## Backend
+
+- Django
+- Django REST Framework
+- REST APIs
+- JWT Authentication
+
+---
+
+## Database
+
+- MySQL
+
+---
+
+## AI & Analytics
+
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+
+---
+
+## Tools
+
+- Git
+- GitHub
+- VS Code
+- Postman
+- Figma
+
+---
+
+# 🏗 System Architecture
+
+```
+               User
+                 │
+                 ▼
+          React Frontend
+                 │
+        REST API Requests
+                 │
+                 ▼
+        Django REST Backend
+                 │
+      ┌──────────┼──────────┐
+      ▼          ▼          ▼
+ Authentication Database AI Engine
+      │          │          │
+      └──────────┼──────────┘
+                 ▼
+              MySQL
 ```
 
 ---
 
-## 🔧 Installation & Setup
+# 📂 Project Structure
 
-### Prerequisites
-
-* Python 3.10+
-* Node.js 18+
-* MySQL 8.0+
-* **Tesseract-OCR** installed on the host machine.
-  * *Windows default path*: `C:\Program Files\Tesseract-OCR\tesseract.exe`
-  * Make sure to add Tesseract to your System Environment variables.
-
----
-
-### 1. Database Setup
-
-1. Open your MySQL client and create the database:
-   ```sql
-   CREATE DATABASE fintrack_db;
-   ```
-2. Verify database settings in [backend/backend/settings.py](file:///c:/Users/HP/OneDrive/Desktop/FinTrack/backend/backend/settings.py):
-   ```python
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.mysql',
-           'NAME': 'fintrack_db',
-           'USER': 'root',
-           'PASSWORD': 'YOUR_PASSWORD',
-           'HOST': 'localhost',
-           'PORT': '3306',
-       }
-   }
-   ```
+```
+FinTrack
+│
+├── backend
+│   ├── api
+│   ├── users
+│   ├── finance
+│   ├── analytics
+│   ├── ai
+│   ├── manage.py
+│   └── requirements.txt
+│
+├── frontend
+│   ├── public
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── services
+│   │   ├── context
+│   │   └── assets
+│   └── package.json
+│
+├── screenshots
+├── README.md
+└── .gitignore
+```
 
 ---
 
-### 2. Backend Installation
+# 📸 Screenshots
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Create and activate a virtual environment:
-   ```bash
-   # Windows
-   python -m venv venv
-   .\venv\Scripts\activate
+| Dashboard | Transactions |
+|------------|--------------|
+| *(Add Image)* | *(Add Image)* |
 
-   # macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-3. Install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the database migrations:
-   ```bash
-   python manage.py makemigrations accounts expenses approvals analytics
-   python manage.py migrate
-   ```
-5. Create a superuser/admin account:
-   ```bash
-   python manage.py createsuperuser
-   ```
-6. Start the development server:
-   ```bash
-   python manage.py runserver
-   ```
-   *The backend REST API will run at `http://127.0.0.1:8000/`.*
+| Budget Planner | Analytics |
+|----------------|-----------|
+| *(Add Image)* | *(Add Image)* |
+
+| AI Insights | Profile |
+|--------------|---------|
+| *(Add Image)* | *(Add Image)* |
 
 ---
 
-### 3. Frontend Installation
+# 🚀 Installation
 
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install the Node packages:
-   ```bash
-   npm install
-   ```
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
-   *The frontend SPA will run at `http://localhost:5173/`.*
+## Clone Repository
+
+```bash
+git clone https://github.com/AdityaGade28/FinTrack.git
+```
+
+Backend
+
+```bash
+cd backend
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python manage.py migrate
+
+python manage.py runserver
+```
+
+Frontend
+
+```bash
+cd frontend
+
+npm install
+
+npm run dev
+```
 
 ---
 
-## 🔒 Default Role Workflow & Scopes
+# 📊 Future Enhancements
 
-* **Admin Dashboard**: Access to all expenses, user management, and configuration of custom company-wide approval rules.
-* **Manager Dashboard**: Action assigned approval flows, view team expense reports, and submit personal expenses.
-* **Employee Dashboard**: Upload receipts, view personal reimbursement status (Draft, Pending, Approved, Rejected).
+- AI Financial Assistant
+- Voice-Based Expense Entry
+- OCR Receipt Scanner
+- UPI Integration
+- Razorpay Integration
+- Bank API Integration
+- Investment Portfolio
+- Credit Score Prediction
+- Tax Calculator
+- Expense Forecasting
+- Multi-Currency Support
+- Family Budget Sharing
+- Cloud Deployment
+- Android & iOS Application
 
 ---
+
+# 🎯 Project Objectives
+
+- Simplify personal finance management
+- Improve budgeting habits
+- Track income and expenses efficiently
+- Generate insightful financial reports
+- Encourage better saving practices
+- Provide AI-powered financial recommendations
+
+---
+
+# 📈 Workflow
+
+```
+Register/Login
+       │
+       ▼
+Dashboard
+       │
+       ▼
+Add Income / Expense
+       │
+       ▼
+Store in Database
+       │
+       ▼
+Generate Reports
+       │
+       ▼
+AI Analysis
+       │
+       ▼
+Financial Insights
+```
+
+---
+
+# 👨‍💻 Contributors
+
+### Project Lead
+
+**Aditya Gade**
+
+### Team Members
+
+- Add Team Member
+- Add Team Member
+- Add Team Member
+
+---
+
+# 🌟 Repository Stats
+
+⭐ Star this repository if you like the project.
+
+🍴 Fork it to contribute.
+
+🐛 Report Issues
+
+💡 Suggest New Features
+
+---
+
+# 📜 License
+
+This project is developed for educational and academic purposes as a Final Year Engineering Project.
+
+---
+
+<div align="center">
+
+## ⭐ If you found this project helpful, don't forget to Star the Repository ⭐
+
+Made with ❤️ by **Team FinTrack**
+
+</div>
 
